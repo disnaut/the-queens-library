@@ -8,7 +8,7 @@ import { Card } from 'src/app/types/Card';
   styleUrls: ['./card-table.component.scss']
 })
 export class CardTableComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'description', 'cmc', 'type'];
+  displayedColumns: string[] = ['name', 'description', 'cmc', 'type', 'colors'];
   dataSource: Card[] = [];
   cardClient: CardClient;
   nameInput: string = '';
@@ -16,8 +16,8 @@ export class CardTableComponent implements OnInit {
   artistInput: string = '';
   setInput: string = '';
   rarityInput: string = '';
-  colorsInput: string[] = [];
-  keywordsInput: string[] = [];
+  colorsInput: string = '';
+  keywordsInput: string = '';
 
   constructor(cardClient: CardClient) {
     this.cardClient = cardClient;
@@ -28,7 +28,7 @@ export class CardTableComponent implements OnInit {
 
   public search(): void {
     this.cardClient.getCard(this.nameInput, this.typeInput, this.artistInput, this.setInput,
-                            this.rarityInput, this.colorsInput, this.keywordsInput)
+                            this.rarityInput, this.colorsInput.split(','), this.keywordsInput.split(','))
                             .subscribe((data: any) => {
       this.dataSource = data;
     });

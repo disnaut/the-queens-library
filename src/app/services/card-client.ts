@@ -10,6 +10,8 @@ export class CardClient {
 
   public getCard(name: string, types: string, artist: string, set: string, rarity: string,
                  colors: string[], keywords: string[]): Observable<any> {
-    return this.http.get(`http://localhost:3000/cards`, { params: { name, types, artist, set, rarity, colors, keywords } });
+    return this.http.get(`http://localhost:3000/cards`,
+                         { params: { name, types, artist, set, rarity, colors, keywords } }
+    );
   }
 }
