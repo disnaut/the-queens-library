@@ -1,6 +1,19 @@
 <div>
-  <input type="text" [(ngModel)]="searchQuery" (keydown.enter)="search()"
-    placeholder="Search for a card">
+  <input type="text" [(ngModel)]="nameInput"
+    placeholder="Card name">
+  <input type="text" [(ngModel)]="typeInput"
+    placeholder="Card Type">
+  <input type="text" [(ngModel)]="artistInput"
+    placeholder="Card Artist">
+  <input type="text" [(ngModel)]="setInput"
+    placeholder="Card Set">
+  <input type="text" [(ngModel)]="rarityInput"
+    placeholder="Card Rarity">
+  <input type="text" [(ngModel)]="colorsInput"
+    placeholder="Card Colors">
+  <input type="text" [(ngModel)]="keywordsInput"
+    placeholder="Card Keywords">
+
   <button (click)="search()">Search</button>
 </div>
 

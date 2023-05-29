@@ -11,7 +11,13 @@ export class CardTableComponent implements OnInit {
   displayedColumns: string[] = ['name', 'description', 'cmc', 'type'];
   dataSource: Card[] = [];
   cardClient: CardClient;
-  searchQuery: any;
+  nameInput: string = '';
+  typeInput: string = '';
+  artistInput: string = '';
+  setInput: string = '';
+  rarityInput: string = '';
+  colorsInput: string[] = [];
+  keywordsInput: string[] = [];
 
   constructor(cardClient: CardClient) {
     this.cardClient = cardClient;
@@ -21,7 +27,9 @@ export class CardTableComponent implements OnInit {
   }
 
   public search(): void {
-    this.cardClient.getCard(this.searchQuery).subscribe((data: any) => {
+    this.cardClient.getCard(this.nameInput, this.typeInput, this.artistInput, this.setInput,
+                            this.rarityInput, this.colorsInput, this.keywordsInput)
+                            .subscribe((data: any) => {
       this.dataSource = data;
     });
   }
